@@ -18,7 +18,7 @@
                 echo "Login successful";
                 
                 $_SESSION['ID'] = $id;
-                header('Location: test.php');
+                header('Location: dashboard.php');
                 //go to dashboard
             }else{
                 echo "Incorrect password";

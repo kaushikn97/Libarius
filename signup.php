@@ -23,7 +23,7 @@
     if ($stmt->execute() === TRUE) {
         echo "New record created successfully";
         $_SESSION['ID'] = $id;
-        header('Location: test.php');
+        header('Location: dashboard.php');
     } else {
         echo "Error";
         header("Location: index.php?error=2");

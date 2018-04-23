@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Post for Sale/Rent</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    </script>
+</head> 
+
+
+<body>
+    
+    <div class="container">
+            <form class="form-horizontal" role="form" method ="post" action="addbook.php">
+                <h2 align="center">Book Details</h2>
+                <hr>
+                <div class="form-group">
+                    <label for="bName" class="col-sm-2 control-label">Book Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="name" placeholder="Book Name" class="form-control" autofocus>
+                        
+                    </div>
+                </div>
+                    <div class="form-group">
+                    <label for="author" class="col-sm-2 control-label">Author</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="author" placeholder="Author" class="form-control">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="Category" class="col-sm-2 control-label">Category</label>
+                    <div class="col-sm-9">
+                        <select name="category" class="form-control">
+                            <option>General</option>
+                            <option>Study</option>
+                            <option>Fiction</option>
+                            <option>Non Fiction</option>
+                            <option>Literature</option>
+                            <option>History</option>
+                            <option>Biography</option>
+                            <option>Autobiography</option>
+                            
+                        </select>
+                    </div>
+                </div> <!-- /.form-group -->
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Type</label>
+                    <div class="col-sm-9">
+                    	<div class="radiobox">
+        					<input type="radio" name="type" id="sell" value="sell" checked>
+                           	<label for="sell">Sell</label>
+
+                        </div>
+                        <div class="radiobox">
+                            <input type="radio"  name="type" id="rent" value="rent" >
+                           	<label for="rent">Rent</label>
+                        </div>
+                        
+                    </div>
+                </div> 
+
+               
+                 <div class="form-group">
+                    <label for="price" class="col-sm-2 control-label">Price</label>
+                    <div class="col-sm-9">
+                        <input type="price" name="price" placeholder="Price" class="form-control">
+                        <span class="help-block">*for rent, please enter the weekly rent</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">I accept <a href="#">terms</a>
+                            </label>
+                        </div>
+                    </div>
+                </div> <!-- /.form-group -->
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-2">
+                        <input type="submit" class="btn btn-primary btn-block" value="Add Book"/>
+                    </div>
+                </div>
+            </form> <!-- /form -->
+        </div> <!-- ./container -->
+</body>
