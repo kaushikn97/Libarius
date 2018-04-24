@@ -7,7 +7,6 @@
     session_start();
     $name = $_POST['name'];
     $userID = $_SESSION['ID'];
-    //$userID = '2015B5A70747H';
     $price = $_POST['price'];
     $author = $_POST['author'];
     $type = $_POST['type'];
@@ -25,11 +24,11 @@
     $stmt->bind_param("ssissss",$name,$userID,$price,$type,$avail,$cat,$author);
     ;
     if ($stmt->execute() === TRUE) {
-        echo "New record created successfully";
+        header('Location: dashboard.php?added=1');
     } else {
-        echo "Error";
+        echo '<script type="text/javascript">alert("Book added")</script>';
     }
-    
+
 
 ?>
     </BODY></HTML>

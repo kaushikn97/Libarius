@@ -16,7 +16,7 @@
         while($row = $result->fetch_assoc()) {
             if($pass == $row["PASSWORD"]){
                 echo "Login successful";
-                
+
                 $_SESSION['ID'] = $id;
                 header('Location: dashboard.php');
                 //go to dashboard
