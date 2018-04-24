@@ -94,7 +94,7 @@
                 <form class="marginTop" method="post" action = "signup.php">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="name" name="sign_name" class="form-control" placeholder="Your Name" />
+                        <input type="name" name="sign_name" class="form-control" placeholder="Your Name"/>
                     </div>
                     <div class="form-group">
                         <label for="id">BITS ID</label>
