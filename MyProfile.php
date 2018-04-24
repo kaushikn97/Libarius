@@ -15,15 +15,20 @@
 
     echo "Connected Successfully";
 
-    $name = $conn->prepare("SELECT NAME FROM USER WHERE ID = ''$userID'");
+    $sql = "SELECT NAME FROM USER WHERE ID = '$userID'";
 
-    if ($name->execute() === TRUE) {
-        echo "Success!";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "Name: " . $row["NAME"]. "<br>";
+        }
     } else {
-        echo "Error";
+        echo "0 results";
     }
 
-    echo "User ID: ".$userID."<br />User Name: ".$name;
+    //echo "User ID: ".$userID."<br/> User Name: ".;
 
 
 ?>

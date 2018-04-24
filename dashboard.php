@@ -25,7 +25,7 @@ $name = $_SESSION['Name'];
 
 <body>
 	<div class="container">
-		<form class="form-horizontal" role="form">
+		<form class="form-horizontal" role="form" >
 
 			<h2 align="center">Dashboard</h2>
 			<hr>
@@ -52,7 +52,7 @@ $name = $_SESSION['Name'];
             <hr>
 		</form>
         <div class="form-group">
-            <form action="post.html" method="get">
+            <form action="MyProfile.php" method="get">
             <div class="col-sm-2 col-sm-offset-0">
                 <input type="submit" class="btn btn-primary btn-block" value="Profile"/>
             </div>
