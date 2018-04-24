@@ -4,16 +4,22 @@
     <meta charset="utf-8">
     <meta name="viewpoint" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    
     <title>Post for Sale/Rent</title>
+    
     <script src="js/jquery-3.1.1.min.js"> 
+    
     </script>
+    
     <script src="js/bootstrap.min.js">
+    
     </script>
-</head> 
+
+    </head>
 
 
 <body>
-    
+
     <div class="container">
             <form class="form-horizontal" role="form" method ="post" action="addbook.php">
                 <h2 align="center">Book Details</h2>
@@ -21,17 +27,17 @@
                 <div class="form-group">
                     <label for="bName" class="col-sm-2 control-label">Book Name</label>
                     <div class="col-sm-9">
-                        <input type="text" name="name" placeholder="Book Name" class="form-control" autofocus>
-                        
+                        <input required type="text" name="name" placeholder="Book Name" class="form-control" autofocus>
+
                     </div>
                 </div>
                     <div class="form-group">
                     <label for="author" class="col-sm-2 control-label">Author</label>
                     <div class="col-sm-9">
-                        <input type="text" name="author" placeholder="Author" class="form-control">
+                        <input required type="text" name="author" placeholder="Author" class="form-control">
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="Category" class="col-sm-2 control-label">Category</label>
                     <div class="col-sm-9">
@@ -44,7 +50,7 @@
                             <option>History</option>
                             <option>Biography</option>
                             <option>Autobiography</option>
-                            
+
                         </select>
                     </div>
                 </div> <!-- /.form-group -->
@@ -60,15 +66,15 @@
                             <input type="radio"  name="type" id="rent" value="rent" >
                            	<label for="rent">Rent</label>
                         </div>
-                        
-                    </div>
-                </div> 
 
-               
+                    </div>
+                </div>
+
+
                  <div class="form-group">
                     <label for="price" class="col-sm-2 control-label">Price</label>
                     <div class="col-sm-9">
-                        <input type="price" name="price" placeholder="Price" class="form-control">
+                        <input required type="price" name="price" placeholder="Price" class="form-control">
                         <span class="help-block">*for rent, please enter the weekly rent</span>
                     </div>
                 </div>
@@ -77,7 +83,7 @@
                     <div class="col-sm-9 col-sm-offset-2">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox">I accept <a href="#">terms</a>
+                                <input required type="checkbox">I accept <a href="#">terms</a>
                             </label>
                         </div>
                     </div>

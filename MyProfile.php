@@ -15,8 +15,8 @@
 
     echo "Connected Successfully";
 
-    $name = $conn->prepare("SELECT NAME FROM USER WHERE ID = $userID");
-    
+    $name = $conn->prepare("SELECT NAME FROM USER WHERE ID = ''$userID'");
+
     if ($name->execute() === TRUE) {
         echo "Success!";
     } else {
@@ -24,7 +24,7 @@
     }
 
     echo "User ID: ".$userID."<br />User Name: ".$name;
-    
+
 
 ?>
 
