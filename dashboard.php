@@ -33,7 +33,7 @@ $name = $_SESSION['Name'];
 
 			<div class="form-group">
                     <div class="col-sm-9">
-                        <input type="text" id="search" placeholder="Search" class="form-control">
+                        <input required type="text" id="search" placeholder="Search" class="form-control">
                     </div>
             </div>
 
@@ -50,18 +50,18 @@ $name = $_SESSION['Name'];
                 </form>
             </div>
             <hr>
-			<div class="form-group">
-                <form action="post.html" method="get">
-   	       		<div class="col-sm-2 col-sm-offset-0">
-   	            	<input type="submit" class="btn btn-primary btn-block" value="Profile"/>
-   	         	</div>
-                </form>
-                <form action="post.html" method="get">
-   	         	<div class="col-sm-2 col-sm-offset-0">
-   	            	<input type="submit" class="btn btn-primary btn-block" value="Post">
-   	    	    </div>
-                </form>
-   		   	</div>
 		</form>
+        <div class="form-group">
+            <form action="post.html" method="get">
+            <div class="col-sm-2 col-sm-offset-0">
+                <input type="submit" class="btn btn-primary btn-block" value="Profile"/>
+            </div>
+            </form>
+            <form action="post.html" method="get">
+            <div class="col-sm-2 col-sm-offset-0">
+                <input type="submit" class="btn btn-primary btn-block" value="Post">
+            </div>
+            </form>
+        </div>
 	</div>
 </body>
