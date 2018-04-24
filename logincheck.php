@@ -18,7 +18,19 @@
                 echo "Login successful";
 
                 $_SESSION['ID'] = $id;
-                header('Location: dashboard.html');
+
+                $sql = "SELECT Name FROM USER WHERE ID = '$id'";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        $name = $row['Name'];
+                    }
+                } else {
+                    echo "0 results";
+                }
+                $_SESSION["Name"] = $name;
+                header('Location: dashboard.php');
                 //go to dashboard
             }else{
                 echo "Incorrect password";

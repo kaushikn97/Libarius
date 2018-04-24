@@ -2,6 +2,11 @@
 if(isset($_GET['added']) && ($_GET['added'])== 1){
     echo '<script type="text/javascript">alert("Book added")</script>';
 }
+
+session_start();
+$id = $_SESSION['ID'];
+$name = $_SESSION['Name'];
+
  ?>
 
 <!DOCTYPE html>
@@ -24,7 +29,7 @@ if(isset($_GET['added']) && ($_GET['added'])== 1){
 
 			<h2 align="center">Dashboard</h2>
 			<hr>
-			<p style="font-size: 500%" align="center">Welcome, username </p>
+			<p style="font-size: 500%" align="center">Welcome, <?php echo $name ?> </p>
 
 			<div class="form-group">
                     <div class="col-sm-9">
