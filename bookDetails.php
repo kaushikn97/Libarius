@@ -181,7 +181,7 @@
                 <form method='get'>
                     <input type="submit" class="btn btn-large btn-success" value = <?php echo $btype ?> name = <?php echo $btype ?> ></button>
                 </form>
-        </div>
+        </div></div></div>
 
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
