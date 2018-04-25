@@ -7,60 +7,8 @@
 
 <title>Libarius</title>
 
+<link rel="stylesheet" href="css/indexStyle.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
-
-<style>
-.navbar-brand {
-	 	 font-size:1.8em;
-}
-
-#topContainer {
-	 	 background-image:url("images/login_bg.jpg");
-	 	 height:400px;
-	 	 width:100%;
-	 	 background-size:cover;
-	 	 }
-
-#topRow {
-	 	 margin-top:80px;
-	 	 text-align:center;
-}
-
-#topRow h1 {
-	 	 font-size:300%;
-}
-
-#emailSignup {
-	 	 margin-top:50px;
-}
-
-.bold {
-	 	 font-weight:bold;
-}
-
-.marginTop {
-	 	 margin-top:30px;
-}
-
-.center {
-	 	 text-align:center;
-}
-
-.title {
-	 	 margin-top:100px;
-	 	 font-size:300%;
-}
-
-#footer {
-	 	 background-color:#B0D1FB;
-	 	 padding-top:70px;
-	 	 width:100%;
-}
-
-.marginBottom {
-	 	 margin-bottom:30px;
-}
-</style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar-collapse">
@@ -68,7 +16,7 @@
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
              <div class="navbar-header pull-left">
-                 <a class="navbar-brand">Libarius</a>
+                 <a class="navbar-brand" href="/libarius/">Libarius</a>
             </div>
             <div class="collapse navbar-collapse">
                 <form class="navbar-form navbar-right" method = "post" action = 'logincheck.php' >
@@ -106,7 +54,7 @@
                     </div>
                     <input type="submit" name="sign_submit" value="Sign Up" class="btn btn-success btn-lg marginTop"/>
                 </form>
-        </div>
+            </div></div></div>
             
     <?php
     

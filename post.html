@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewpoint" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/indexStyle.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     
     <title>Post for Sale/Rent</title>
@@ -19,6 +20,20 @@
 
 
 <body>
+    
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+             <div class="navbar-header pull-left">
+                 <a class="navbar-brand" href="dashboard.php">Libarius</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <form class="navbar-form navbar-right" method = "post" action="logout.php">
+                    <div class="hello">Hello, <?php echo $name ?></div>
+                    <input type="submit" name="logout_submit" class="btn btn-success" value="Log Out"/>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
             <form class="form-horizontal" role="form" method ="post" action="addbook.php">
@@ -90,7 +105,7 @@
                 </div> <!-- /.form-group -->
                 <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-2">
-                        <input type="submit" class="btn btn-primary btn-block" value="Add Book"/>
+                        <input type="submit" class="btn btn-success btn-block" value="Add Book"/>
                     </div>
                 </div>
             </form> <!-- /form -->

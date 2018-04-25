@@ -77,72 +77,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Libarius</title>
-
+<link rel="stylesheet" href="css/indexStyle.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
-
-<style>
-.navbar-brand {
-	 	 font-size:1.8em;
-}
-
-#topContainer {
-	 	 background-image:url("images/login_bg.jpg");
-	 	 height:400px;
-	 	 width:100%;
-	 	 background-size:cover;
-	 	 }
-
-#topRow {
-	 	 margin-top:80px;
-	 	 text-align:center;
-}
-
-#topRow h1 {
-	 	 font-size:300%;
-}
-
-#emailSignup {
-	 	 margin-top:50px;
-}
-
-.bold {
-	 	 font-weight:bold;
-}
-
-.marginTop {
-	 	 margin-top:30px;
-}
-
-.center {
-	 	 text-align:center;
-    }
-
-.table.no-border tr td, .table.no-border tr th {
-  border-width: 0;
-    text-align: center;
-}
-
-.title {
-	 	 margin-top:100px;
-	 	 font-size:300%;
-}
-
-    .hello {
-        float:left;
-        margin: 7px 10px 0 0;
-        font-size: 16px;
-    }
-
-#footer {
-	 	 background-color:#B0D1FB;
-	 	 padding-top:70px;
-	 	 width:100%;
-}
-
-.marginBottom {
-	 	 margin-bottom:30px;
-}
-</style>
+    <style>
+     th{
+         text-align: center;
+         }
+     </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar-collapse">
@@ -150,10 +91,10 @@
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
              <div class="navbar-header pull-left">
-                 <a class="navbar-brand">Libarius</a>
+                 <a class="navbar-brand" href="dashboard.php">Libarius</a>
             </div>
             <div class="collapse navbar-collapse">
-                <form class="navbar-form navbar-right" method = "post" action = 'logincheck.php' >
+                <form class="navbar-form navbar-right" method = "post" action="logout.php">
                     <div class="hello">Hello, <?php echo $name ?></div>
                     <input type="submit" name="logout_submit" class="btn btn-success" value="Log Out"/>
                 </form>

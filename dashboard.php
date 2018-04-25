@@ -64,7 +64,7 @@ $name = $_SESSION['Name'];
 
         </form>
         <div class="form-group">
-            <form action="profile.php" method="get">
+            <form action="MyProfile.php" method="get">
             <div class="col-sm-2 col-sm-offset-0">
                 <input type="submit" class="btn btn-primary btn-block" value="Profile"/>
             </div>
