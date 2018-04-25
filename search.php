@@ -4,6 +4,7 @@ include 'db_conn_test.php';
 $searchby = $_GET['search_by'];
 $searchphrase = $_GET['search_phrase'];
 $name = $_SESSION['Name'];
+$id = $_SESSION["ID"];
 $conn = OpenCon();
 ?>
 
@@ -90,7 +91,7 @@ $conn = OpenCon();
                  <a class="navbar-brand">Libarius</a>
             </div>
             <div class="collapse navbar-collapse">
-                <form class="navbar-form navbar-right" method = "post" action = 'logincheck.php' >
+                <form class="navbar-form navbar-right" method = "post" action="logout.php">
                     <div class="hello">Hello, <?php echo $name ?></div>
                     <input type="submit" name="logout_submit" class="btn btn-success" value="Log Out"/>
                 </form>
@@ -112,7 +113,8 @@ $conn = OpenCon();
                      <th>Details</th>
                  </tr>
                 <?php
-     $sql = "SELECT * FROM BOOK WHERE $searchby = '$searchphrase'";
+
+     $sql = "SELECT * FROM BOOK WHERE $searchby = '$searchphrase' AND AVAILABILITY = 'YES' AND UserID != '$id'";
      $result = $conn->query($sql);
      //echo $sql;
     $count = 1;
@@ -120,7 +122,7 @@ $conn = OpenCon();
          // output data of each row
          while($row = $result->fetch_assoc()) {
              $uid = $row['UserID'];
-             $sql2 = "SELECT * FROM USER WHERE ID = '$uid'";
+             $sql2 = "SELECT * FROM USER WHERE ID = '$uid' ";
              $result2 = $conn->query($sql2)  or die($conn->error);
              $bowner = '';
             //  while ($row2 = $result2->fetch_assoc()) {

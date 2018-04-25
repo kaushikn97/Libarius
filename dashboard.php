@@ -29,7 +29,7 @@ $name = $_SESSION['Name'];
 
 <body>
 	<div class="container">
-		<form class="form-horizontal" role="form" >
+		<form class="form-horizontal" role="form"  method = "get" action = "search.php">
 
 			<h2 align="center">Dashboard</h2>
 			<hr>
@@ -37,24 +37,32 @@ $name = $_SESSION['Name'];
 
 			<div class="form-group">
                     <div class="col-sm-9">
-                        <input required type="text" id="search" placeholder="Search" class="form-control">
+                        <input required type="text" name="search_phrase" placeholder="Search" class="form-control">
                     </div>
             </div>
 
-            <div class="form-group">
-                <form action="search.html" method="get">
-        	       <div class="col-sm-2 col-sm-offset-1">
-	                   <input type="submit" class="btn btn-primary btn-block" value="Search by Name"/>
-	         	   </div>
-                </form>
-                <form action="search.html" method="get">
-       	         	<div class="col-sm-2 col-sm-offset-1">
-       	            	<input type="submit" class="btn btn-primary btn-block" value="Search by Author"/>
-       	         	</div>
-                </form>
-            </div>
             <hr>
-		</form>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Type</label>
+                <div class="col-sm-9">
+                    <div class="radiobox">
+                        <input type="radio" name="search_by" value="Author" checked>
+                        <label for="sell">Search by Author</label>
+
+                    </div>
+                    <div class="radiobox">
+                        <input type="radio"  name="search_by" value="Name" >
+                        <label for="rent">Search by book name</label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-sm-offset-1">
+                <input type="submit" class="btn btn-primary btn-block" value="Search"/>
+            </div>
+
+        </form>
         <div class="form-group">
             <form action="MyProfile.php" method="get">
             <div class="col-sm-2 col-sm-offset-0">
