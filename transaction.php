@@ -41,16 +41,16 @@ $row = $result->fetch_assoc();
 $bowner = $row['Name'];
 
 if($btype == 'BUY')
-    $current = 0;
+    $STATUS = 0;
 else {
-    $current = 1;
+    $STATUS = 1;
 }
 $flag = 0;
 if($_GET){
 if(isset($_GET['bookID'])){
     echo'In Get';
-    $stmt = $conn->prepare("INSERT INTO TRANS (PREV,NEXT,BOOKID,CURRENT) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssii",$bowid,$id,$bid,$current);
+    $stmt = $conn->prepare("INSERT INTO TRANS (PREV,NEXT,BOOKID,STATUS) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssii",$bowid,$id,$bid,$STATUS);
     if ($stmt->execute() === TRUE) {
         echo "New record created successfully";
         $flag =1;
