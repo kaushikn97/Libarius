@@ -21,7 +21,7 @@
     }
 
     $sql = "SELECT * FROM sample";
-    $result = $conn->query($sql);
+    $result = $conn->query($sql) or die($conn->error);
 
     if ($result->num_rows > 0) {
         // output data of each row

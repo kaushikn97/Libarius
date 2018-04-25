@@ -1,12 +1,12 @@
 <?php
     session_start();
-//    $id = $_SESSION['ID'];
-//    $name = $_SESSION['Name'];
-//    $bid = $_GET['BookId'];
+    $id = $_SESSION['ID'];
+    $name = $_SESSION['Name'];
+    $bid = $_GET['bookID'];
 
-    $id = '2015B2A70801H';
-    $name = 'Swayam';
-    $bid = 4;
+    // $id = '2015B2A70801H';
+    // $name = 'Swayam';
+    // $bid = 4;
 
     include 'db_conn_test.php';
 
@@ -26,17 +26,30 @@
     $bauthor = $row['Author'];
     $bsubject = $row['Subject'];
     $btype = $row['Type'];
-    $btype = 'BUY';
+    //$btype = 'BUY';
     $bprice = $row['Price'];
+    $bowid = $row['UserID'];
 
-    $bowner = $name;
-    $bowner = '2015B5A70747H';
-    $one = '1';
+    $sqql = "SELECT * FROM USER WHERE ID = '$bowid'";
+    echo $sqql;
+
+    $result = $conn->query($sqql);
+
+    $row = $result->fetch_assoc();
+
+
+    $bowner = $row['Name'];
+
+    if($btype == 'BUY')
+        $current = 0;
+    else {
+        $current = 1;
+    }
     $flag = 0;
     if($_GET){
     if(isset($_GET[$btype])){
         $stmt = $conn->prepare("INSERT INTO TRANS (PREV,NEXT,BOOKID,CURRENT) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssii",$bowner,$id,$bid,$one);
+        $stmt->bind_param("ssii",$bowid,$id,$bid,$current);
         if ($stmt->execute() === TRUE) {
             echo "New record created successfully";
             $flag =1;
@@ -178,8 +191,9 @@
                     <td><?php echo $bowner ?></td>
                   </tr>
                 </table>
-                <form method='get'>
-                    <input type="submit" class="btn btn-large btn-success" value = <?php echo $btype ?> name = <?php echo $btype ?> ></button>
+                <form action = <?php echo 'transaction.php'; ?>>
+                    <input type='hidden' value = <?php echo $bid ?> name = <?php echo 'bookID' ?> />
+                    <input type="submit" class="btn btn-large btn-success" name="submit" value=<?php echo $btype ?> />
                 </form>
         </div></div></div>
 

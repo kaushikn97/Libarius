@@ -4,6 +4,7 @@ include 'db_conn_test.php';
 $searchby = $_GET['search_by'];
 $searchphrase = $_GET['search_phrase'];
 $name = $_SESSION['Name'];
+$id = $_SESSION["ID"];
 $conn = OpenCon();
 ?>
 
@@ -18,7 +19,7 @@ $conn = OpenCon();
      </script>
      <script src="js/bootstrap.min.js">
      </script>
-     
+
      <style>
          .navbar-brand {
 	 	 font-size:1.8em;
@@ -57,7 +58,7 @@ $conn = OpenCon();
     }
 
 .table.center tr td, .table.center tr th {
-  
+
     text-align: center;
 }
 
@@ -79,7 +80,7 @@ $conn = OpenCon();
 .marginBottom {
 	 	 margin-bottom:30px;
 }
-         
+
      </style>
 
  </head>
@@ -90,14 +91,14 @@ $conn = OpenCon();
                  <a class="navbar-brand">Libarius</a>
             </div>
             <div class="collapse navbar-collapse">
-                <form class="navbar-form navbar-right" method = "post" action = 'logincheck.php' >
+                <form class="navbar-form navbar-right" method = "post" action="logout.php">
                     <div class="hello">Hello, <?php echo $name ?></div>
                     <input type="submit" name="logout_submit" class="btn btn-success" value="Log Out"/>
                 </form>
             </div>
         </div>
     </div>
-        
+
     <div class="container contentContainer" id="topContainer">
         <div class="row">
             <div class="col-md-6 col-md-offset-3" id="topRow">
@@ -112,7 +113,8 @@ $conn = OpenCon();
                      <th>Details</th>
                  </tr>
                 <?php
-     $sql = "SELECT * FROM BOOK WHERE $searchby = '$searchphrase'";
+
+     $sql = "SELECT * FROM BOOK WHERE $searchby = '$searchphrase' AND AVAILABILITY = 'YES' AND UserID != '$id'";
      $result = $conn->query($sql);
      //echo $sql;
     $count = 1;
@@ -120,18 +122,20 @@ $conn = OpenCon();
          // output data of each row
          while($row = $result->fetch_assoc()) {
              $uid = $row['UserID'];
-             $sql2 = "SELECT * FROM User WHERE ID = '$uid'";
-             $result2 = $conn->query($sql2);
+             $sql2 = "SELECT * FROM USER WHERE ID = '$uid' ";
+             $result2 = $conn->query($sql2)  or die($conn->error);
              $bowner = '';
-             while ($row2 = $result2->fetch_assoc()) {
-                 $bowner = $row2['Name'];
-            }
+            //  while ($row2 = $result2->fetch_assoc()) {
+            //      $bowner = $row2['Name'];
+            // }
+            $row2 = $result2->fetch_assoc();
+            $bowner = $row2['Name'];
              echo "<tr>";
-             echo "<td style='vertical-align:middle;'>" . $count . "</td>";             
+             echo "<td style='vertical-align:middle;'>" . $count . "</td>";
              echo "<td style='vertical-align:middle;'>" . $row['Name'] . "</td>";
              echo "<td style='vertical-align:middle;'>" . $row['Author'] . "</td>";
              echo "<td style='vertical-align:middle;'>" . $bowner . "</td>";
-             echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-success btn-sm'>View Details</button></td>";
+             echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-success btn-sm'><a href=\"bookDetails.php?bookID=" . $row['ID'] . "\"> View Details </a> </button></td>";
              echo "</tr>";
              $count = $count+1;
          }
@@ -143,7 +147,7 @@ $conn = OpenCon();
       ?>
                 </table>
 
-                
+
         </div></div></div>
-     
+
  </body>
