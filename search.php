@@ -13,7 +13,7 @@ $conn = OpenCon();
      <meta charset="utf-8">
      <meta name="viewpoint" content="width=device-width,initial-scale=1">
      <link rel="stylesheet" href="css/bootstrap.min.css">
-     <title>Dashboard</title>
+     <title>Search Result</title>
      <script src="js/jquery-3.1.1.min.js">
      </script>
      <script src="js/bootstrap.min.js">
@@ -101,7 +101,7 @@ $conn = OpenCon();
     <div class="container contentContainer" id="topContainer">
         <div class="row">
             <div class="col-md-6 col-md-offset-3" id="topRow">
-                <h1 class="marginTop">Search Results</h1>
+                <h1 class="marginTop">Search Results</h1><hr>
                 <p class="lead marginTop" align="center">You searched for '<?php echo $searchphrase ?>' by '<?php echo $searchby ?>' </p>
                 <table class="table center table-hover marginTop">
                  <tr>
