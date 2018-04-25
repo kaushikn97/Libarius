@@ -1,8 +1,12 @@
 <?php
     session_start();
-    $id = $_SESSION['ID'];
-    $name = $_SESSION['Name'];
-    $bid = $_GET['BookId'];
+//    $id = $_SESSION['ID'];
+//    $name = $_SESSION['Name'];
+//    $bid = $_GET['BookId'];
+
+    $id = '2015B2A70801H';
+    $name = 'Swayam';
+    $bid = 4;
 
     include 'db_conn_test.php';
 
@@ -17,14 +21,38 @@
     }
 
     $row = $result->fetch_assoc();
-    
+
     $bname = $row['Name'];
     $bauthor = $row['Author'];
     $bsubject = $row['Subject'];
     $btype = $row['Type'];
+    $btype = 'BUY';
     $bprice = $row['Price'];
-    
+
     $bowner = $name;
+    $bowner = '2015B5A70747H';
+    $one = '1';
+    $flag = 0;
+    if($_GET){
+    if(isset($_GET[$btype])){
+        $stmt = $conn->prepare("INSERT INTO TRANS (PREV,NEXT,BOOKID,CURRENT) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssii",$bowner,$id,$bid,$one);
+        if ($stmt->execute() === TRUE) {
+            echo "New record created successfully";
+            $flag =1;
+        } else {
+            echo "Error";
+        }
+        $update = "UPDATE BOOK SET AVAILABILITY = 'NO' WHERE ID = '$bid'";
+        if ($conn->query($update) === TRUE) {
+            echo 'Book upadted';
+        } else {
+            echo "Error updating record: " . $conn->error;
+        }
+        if($flag == 1)
+            header('Location: dashboard.php?success=1');
+    }
+}
 
 ?>
 
@@ -85,7 +113,7 @@
 	 	 margin-top:100px;
 	 	 font-size:300%;
 }
-    
+
     .hello {
         float:left;
         margin: 7px 10px 0 0;
@@ -150,14 +178,10 @@
                     <td><?php echo $bowner ?></td>
                   </tr>
                 </table>
-                <button class="btn btn-large btn-success"><?php echo $btype ?></button>
+                <form method='get'>
+                    <input type="submit" class="btn btn-large btn-success" value = <?php echo $btype ?> name = <?php echo $btype ?> ></button>
+                </form>
         </div>
-            
-    <?php
-    
-        
-            
-            ?>
 
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

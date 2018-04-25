@@ -1,9 +1,13 @@
 <?php
+session_start();
 if(isset($_GET['added']) && ($_GET['added'])== 1){
     echo '<script type="text/javascript">alert("Book added")</script>';
 }
+if(isset($_GET['success']) && ($_GET['success'])== 1){
+    echo '<script type="text/javascript">alert("Your transaction was successful. Check you profile for further details")</script>';
+}
 
-session_start();
+
 $id = $_SESSION['ID'];
 $name = $_SESSION['Name'];
 
