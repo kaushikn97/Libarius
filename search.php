@@ -13,82 +13,26 @@ $conn = OpenCon();
  <head>
      <meta charset="utf-8">
      <meta name="viewpoint" content="width=device-width,initial-scale=1">
+     <link rel="stylesheet" href="css/indexStyle.css">
      <link rel="stylesheet" href="css/bootstrap.min.css">
      <title>Search Result</title>
      <script src="js/jquery-3.1.1.min.js">
      </script>
      <script src="js/bootstrap.min.js">
      </script>
-
+     
      <style>
-         .navbar-brand {
-	 	 font-size:1.8em;
-}
-
-#topContainer {
-	 	 background-image:url("images/login_bg.jpg");
-	 	 height:400px;
-	 	 width:100%;
-	 	 background-size:cover;
-	 	 }
-
-#topRow {
-	 	 margin-top:80px;
-	 	 text-align:center;
-}
-
-#topRow h1 {
-	 	 font-size:300%;
-}
-
-#emailSignup {
-	 	 margin-top:50px;
-}
-
-.bold {
-	 	 font-weight:bold;
-}
-
-.marginTop {
-	 	 margin-top:30px;
-}
-
-.center {
-	 	 text-align:center;
-    }
-
-.table.center tr td, .table.center tr th {
-
-    text-align: center;
-}
-
-.title {
-	 	 margin-top:100px;
-	 	 font-size:300%;
-}
-          .hello {
-        float:left;
-        margin: 7px 10px 0 0;
-        font-size: 16px;
-    }
-         #footer {
-	 	 background-color:#B0D1FB;
-	 	 padding-top:70px;
-	 	 width:100%;
-}
-
-.marginBottom {
-	 	 margin-bottom:30px;
-}
-
+     th{
+         text-align: center;
+         }
      </style>
-
+     
  </head>
  <body data-spy="scroll" data-target=".navbar-collapse">
      <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
              <div class="navbar-header pull-left">
-                 <a class="navbar-brand">Libarius</a>
+                 <a class="navbar-brand" href="dashboard.php">Libarius</a>
             </div>
             <div class="collapse navbar-collapse">
                 <form class="navbar-form navbar-right" method = "post" action="logout.php">
@@ -135,7 +79,7 @@ $conn = OpenCon();
              echo "<td style='vertical-align:middle;'>" . $row['Name'] . "</td>";
              echo "<td style='vertical-align:middle;'>" . $row['Author'] . "</td>";
              echo "<td style='vertical-align:middle;'>" . $bowner . "</td>";
-             echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-success btn-sm'><a href=\"bookDetails.php?bookID=" . $row['ID'] . "\"> View Details </a> </button></td>";
+             echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-success btn-sm'><a style='color:white;' href=\"bookDetails.php?bookID=" . $row['ID'] . "\"> View Details </a> </button></td>";
              echo "</tr>";
              $count = $count+1;
          }
