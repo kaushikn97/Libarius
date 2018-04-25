@@ -1,12 +1,12 @@
 <?php
     session_start();
-//    $id = $_SESSION['ID'];
-//    $name = $_SESSION['Name'];
-//    $bid = $_GET['BookId'];
+    $id = $_SESSION['ID'];
+    $name = $_SESSION['Name'];
+    $bid = $_GET['bookID'];
 
-    $id = '2015B2A70801H';
-    $name = 'Swayam';
-    $bid = 4;
+    // $id = '2015B2A70801H';
+    // $name = 'Swayam';
+    // $bid = 4;
 
     include 'db_conn_test.php';
 
