@@ -9,7 +9,7 @@
     $userID = $_SESSION['ID'];
     $price = $_POST['price'];
     $author = $_POST['author'];
-    $type = $_POST['type'];
+    $type = $_POST['radio'];
     $cat = $_POST['category'];
     $avail = 'YES';
     var_dump($_POST);

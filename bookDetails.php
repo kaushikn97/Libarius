@@ -26,6 +26,7 @@
     $bauthor = $row['Author'];
     $bsubject = $row['Subject'];
     $btype = $row['Type'];
+    echo $btype;
     //$btype = 'BUY';
     $bprice = $row['Price'];
     $bowid = $row['UserID'];

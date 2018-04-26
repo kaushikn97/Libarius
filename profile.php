@@ -105,6 +105,33 @@ $conn =Opencon();
         </div>
     </div>
 
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Change Password</h4>
+                </div>
+                <form method="post" action = "changePass.php">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="opass">Old Password:</label>
+                        <input required type="password" name="opass" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="npass">New Password:</label>
+                        <input required type="password" name="npass" class="form-control"/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onClick="form_submit()" name="logout_submit" class="btn btn-success" value="Log Out">Log Out</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="container contentContainer " id="topContainer" >
         <div class="row">
             <div class="col-md-6 col-md-offset-3" id="topRow">
@@ -117,10 +144,10 @@ $conn =Opencon();
         </div>
         <div class="row marginTop">
             <div class="col-md-3 col-md-offset-3 center">
-                <button type="button" class="btn btn-success btn-large ">Change Password</button>
+                <button type="button" class="btn btn-info btn-large" data-toggle="modal" data-target="#myModal">Change Password</button>
             </div>
             <div class="col-md-3  center">
-                <button type="button" class="btn btn-danger btn-large" >Delete Account</button>
+                <button type="button" class="btn btn-danger btn-large"> <a style='color:white;' href="deleteAccount.php"> Delete Account</a></button>
             </div>
         </div>
         <div class="row">
@@ -133,7 +160,6 @@ $conn =Opencon();
                         <th>Author</th>
                         <th>Amount</th>
                         <th>Type</th>
-                        <th>Details</th>
                         <th>Delete</th>
                     </tr>
 
@@ -158,8 +184,7 @@ $conn =Opencon();
                                 echo "<td style='vertical-align:middle;'>" . $row2['Author'] . "</td>";
                                 echo "<td style='vertical-align:middle;'>" . $row2['Price'] . "</td>";
                                 echo "<td style='vertical-align:middle;'>" . $row2['Type'] . "</td>";
-                                echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-success btn-sm'><a style='color:white;' href=\"bookDetails.php?bookID=" . $row['ID'] . "\"> View</a> </button></td>";
-                                echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-danger btn-sm'><a style='color:white;' href=\"\">Delete</a> </button></td>";
+                                echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-danger btn-sm'><a style='color:white;' href=\"removebook.php?bookID=".$row['ID']."\">Delete</a> </button></td>";
                                 echo "</tr>";
                                 $count = $count+1;
 
@@ -312,7 +337,7 @@ $conn =Opencon();
                                 echo "<td style='vertical-align:middle;'>" . $row2['Author'] . "</td>";
                                 echo "<td style='vertical-align:middle;'>" . $row2['Price'] . "</td>";
                                 echo "<td style='vertical-align:middle;'>" . $seller . "</td>";
-                                echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-success btn-sm'><a style='color:white;' href=''>Return</a> </button></td>";
+                                echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-success btn-sm'><a style='color:white;' href=\"returnbook.php?bookID=".$row['BOOKID']."\">Return</a> </button></td>";
                                 echo "</tr>";
                                 $count = $count+1;
 
@@ -378,6 +403,19 @@ $conn =Opencon();
                 </table>
             </div>
         </div>
+        <?php
+            if(isset($_GET['error']) && ($_GET['error'])== 1){
+                echo '<script type="text/javascript">alert("Failed! Please enter correct old password.")</script>';
+            }
+            if(isset($_GET['success']) && ($_GET['success'])== 1){
+            echo '<script type="text/javascript">alert("Password changed successfully!")</script>';
+        }
+        ?>
 
     </div>
+    <script type="text/javascript">
+    function form_submit() {
+      document.getElementById("changePass_form").submit();
+    }
+  </script>
 </body>

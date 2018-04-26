@@ -5,22 +5,22 @@
     <meta name="viewpoint" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="css/indexStyle.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    
+
     <title>Post for Sale/Rent</title>
-    
-    <script src="js/jquery-3.1.1.min.js"> 
-    
+
+    <script src="js/jquery-3.1.1.min.js">
+
     </script>
-    
+
     <script src="js/bootstrap.min.js">
-    
+
     </script>
 
     </head>
 
 
 <body>
-    
+
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
              <div class="navbar-header pull-left">
@@ -73,12 +73,12 @@
                     <label class="control-label col-sm-2">Type</label>
                     <div class="col-sm-9">
                     	<div class="radiobox">
-        					<input type="radio" name="type" id="sell" value="sell" checked>
+        					<input type="radio" name="radio" id="BUY" value="BUY" checked>
                            	<label for="sell">Sell</label>
 
                         </div>
                         <div class="radiobox">
-                            <input type="radio"  name="type" id="rent" value="rent" >
+                            <input type="radio"  name="radio" id="BORROW" value="BORROW" >
                            	<label for="rent">Rent</label>
                         </div>
 
@@ -89,7 +89,7 @@
                  <div class="form-group">
                     <label for="price" class="col-sm-2 control-label">Price</label>
                     <div class="col-sm-9">
-                        <input required type="price" name="price" placeholder="Price" class="form-control">
+                        <input required type="price" name="price" placeholder="Price" class="form-control" onkeypress="return isNumberKey(event)">
                         <span class="help-block">*for rent, please enter the weekly rent</span>
                     </div>
                 </div>
@@ -110,4 +110,12 @@
                 </div>
             </form> <!-- /form -->
         </div> <!-- ./container -->
+        <script>
+            function isNumberKey(evt){
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                    if (charCode > 31 && (charCode != 46 &&(charCode < 48 || charCode > 57)))
+                        return false;
+                    return true;
+                    }
+        </script>
 </body>

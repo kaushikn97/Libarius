@@ -8,6 +8,8 @@
     $name = $_POST["sign_name"];
     $id = $_POST["sign_id"];
     $pass = $_POST["sign_pass"];
+    $pass2 = md5($pass);
+    $pass3 = md5($pass2.$id);
 
     include 'db_conn_test.php';
 
@@ -28,7 +30,7 @@
     else{
     if($error == 0){
         $stmt = $conn->prepare("INSERT INTO USER (ID,Name,Password) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss",$id,$name,$pass);
+        $stmt->bind_param("sss",$id,$name,$pass3);
 
         if ($stmt->execute() === TRUE) {
             echo "New record created successfully";

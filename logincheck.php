@@ -2,19 +2,25 @@
     session_start();
     $id = $_POST["login_id"];
     $pass = $_POST["login_pass"];
+    $pass2 = md5($pass);
+    $pass3 = md5($pass2.$id);
+    echo $id;
     include 'db_conn_test.php';
 
     $conn = OpenCon();
 
     echo "Connected Successfully";
 
-    $sql = "SELECT PASSWORD FROM USER WHERE ID = '$id' ";
+    $sql = "SELECT * FROM USER WHERE ID = '$id' ";
     $result = $conn->query($sql);
     echo $sql;
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-            if($pass == $row["PASSWORD"]){
+            //echo $row["Password"];
+            //echo "****";
+            //echo $pass3;
+            if($pass3 == $row["Password"]){
                 echo "Login successful";
 
                 $_SESSION['ID'] = $id;
