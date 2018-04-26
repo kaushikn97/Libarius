@@ -1,3 +1,10 @@
+<?php
+session_start();
+$name = $_SESSION['Name'];
+
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +42,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" id="topRow">
             <form class="form-horizontal" role="form" method ="post" action="addbook.php">
                 <h2 align="center">Book Details</h2>
                 <hr>

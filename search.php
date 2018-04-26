@@ -20,13 +20,13 @@ $conn = OpenCon();
      </script>
      <script src="js/bootstrap.min.js">
      </script>
-     
+
      <style>
      th{
          text-align: center;
          }
      </style>
-     
+
  </head>
  <body data-spy="scroll" data-target=".navbar-collapse">
      <div class="navbar navbar-default navbar-fixed-top">
@@ -58,7 +58,7 @@ $conn = OpenCon();
                  </tr>
                 <?php
 
-     $sql = "SELECT * FROM BOOK WHERE $searchby = '$searchphrase' AND AVAILABILITY = 'YES' AND UserID != '$id'";
+     $sql = "SELECT * FROM BOOK WHERE $searchby LIKE '%$searchphrase%' AND AVAILABILITY = 'YES' AND UserID != '$id'";
      $result = $conn->query($sql);
      //echo $sql;
     $count = 1;

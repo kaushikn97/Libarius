@@ -127,7 +127,7 @@ $conn =Opencon();
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button onClick="form_submit()" name="logout_submit" class="btn btn-success" value="Log Out">Log Out</button>
+                    <button onClick="form_submit()" name="logout_submit" class="btn btn-success" value="Log Out">Change password</button>
                 </div>
                 </form>
             </div>
@@ -163,6 +163,7 @@ $conn =Opencon();
                         <th>Author</th>
                         <th>Amount</th>
                         <th>Type</th>
+                        <th>Edit</th>
                         <th>Delete</th>
                     </tr>
 
@@ -187,6 +188,7 @@ $conn =Opencon();
                                 echo "<td style='vertical-align:middle;'>" . $row2['Author'] . "</td>";
                                 echo "<td style='vertical-align:middle;'>" . $row2['Price'] . "</td>";
                                 echo "<td style='vertical-align:middle;'>" . $row2['Type'] . "</td>";
+                                echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-danger btn-sm'><a style='color:white;' href=\"editbook.php?bookID=".$row['ID']."\">Edit</a> </button></td>";
                                 echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-danger btn-sm'><a style='color:white;' href=\"removebook.php?bookID=".$row['ID']."\">Delete</a> </button></td>";
                                 echo "</tr>";
                                 $count = $count+1;

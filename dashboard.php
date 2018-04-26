@@ -7,6 +7,9 @@ if(isset($_GET['success']) && ($_GET['success'])== 1){
     echo '<script type="text/javascript">alert("Your transaction was successful. Check you profile for further details")</script>';
 }
 
+if(isset($_GET['updated']) && ($_GET['updated'])== 1){
+    echo '<script type="text/javascript">alert("Book details updated")</script>';
+}
 
 $id = $_SESSION['ID'];
 $name = $_SESSION['Name'];
@@ -37,7 +40,7 @@ $name = $_SESSION['Name'];
 </head>
 
 <body>
-    
+
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
              <div class="navbar-header pull-left">
@@ -51,20 +54,20 @@ $name = $_SESSION['Name'];
             </div>
         </div>
     </div>
-    
+
     <div class="container contentContainer" id="topContainer">
-        
+
         <div class="row">
             <div class="col-md-6 col-md-offset-3" id="topRow">
                 <h1 class="marginTop">Dashboard</h1>            <hr>
-                <form class="form-horizontal" role="form"  method = "get" action = "search.php">		
+                <form class="form-horizontal" role="form"  method = "get" action = "search.php">
 			<div class="form-group">
                     <div class="marginTop">
                         <input required type="text" name="search_phrase" placeholder="Search Books.." class="form-control">
                     </div>
             </div>
                     </div></div>
-            
+
             <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div>
@@ -85,9 +88,9 @@ $name = $_SESSION['Name'];
             </div>
 
                 </div>
-                </div>    
-                </div></div> 
-              
+                </div>
+                </div></div>
+
         <div class="row marginTop">
             <div class="col-md-6 col-md-offset-3">
                     <div class="col-md-6 col-centered">
@@ -98,16 +101,16 @@ $name = $_SESSION['Name'];
                 </form>
                     </div>
                     <div class="col-md-6 col-centered">
-                <form action="post.html" method="get">
+                <form action="post.php" method="get">
                 <div class="form-group">
                         <input type="submit" class="btn btn-success btn-block" value="Post">
                 </div>
             </form>
                     </div>
                 </div>
-        </div> 
-                
+        </div>
+
     </div>
-    
+
 </body>
 </html>
