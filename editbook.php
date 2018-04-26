@@ -97,14 +97,14 @@ if($result->num_rows>0){
                     <label for="Category" class="col-sm-2 control-label">Category</label>
                     <div class="col-sm-9">
                         <select name="category" class="form-control">
-                            <option>General</option>
-                            <option>Study</option>
-                            <option>Fiction</option>
-                            <option>Non Fiction</option>
-                            <option>Literature</option>
-                            <option>History</option>
-                            <option>Biography</option>
-                            <option>Autobiography</option>
+                            <option <?php echo ($subject=='General')?'selected':'' ?>>General</option>
+                            <option <?php echo ($subject=='Study')?'selected':'' ?>>Study</option>
+                            <option <?php echo ($subject=='Fiction')?'selected':'' ?>>Fiction</option>
+                            <option <?php echo ($subject=='Non Fiction')?'selected':'' ?>>Non Fiction</option>
+                            <option <?php echo ($subject=='Literature')?'selected':'' ?>>Literature</option>
+                            <option <?php echo ($subject=='History')?'selected':'' ?>>History</option>
+                            <option <?php echo ($subject=='Biography')?'selected':'' ?>>Biography</option>
+                            <option <?php echo ($subject=='Autobiography')?'selected':'' ?>>Autobiography</option>
 
                         </select>
                     </div>
@@ -113,12 +113,12 @@ if($result->num_rows>0){
                     <label class="control-label col-sm-2">Type</label>
                     <div class="col-sm-9">
                     	<div class="radiobox">
-        					<input type="radio" name="radio" id="BUY" value="BUY" checked>
+        					<input type="radio" name="radio" id="BUY" value="BUY"  <?php echo ($type=='BUY')?'checked':'' ?>>
                            	<label for="sell">Sell</label>
 
                         </div>
                         <div class="radiobox">
-                            <input type="radio"  name="radio" id="BORROW" value="BORROW" >
+                            <input type="radio"  name="radio" id="BORROW" value="BORROW" <?php echo ($type=='BORROW')?'checked':'' ?>>
                            	<label for="rent">Rent</label>
                         </div>
 
