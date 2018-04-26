@@ -22,6 +22,8 @@ $conn =Opencon();
     <script src="js/bootstrap.min.js">
 
     </script>
+    <script src="js/jquery.table2excel.min.js">
+    </script>
 
     <style>
          .navbar-brand {
@@ -151,9 +153,10 @@ $conn =Opencon();
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-md-offset-3 center">
+            <div class="col-md-6 col-md-offset-3 center" >
                 <p class="bold marginTop" align="left">Current Posts</p>
-                <table class="table center table-hover ">
+            <div class="table-responsive" >
+                <table id="current_posts" class="table center table-hover">
                     <tr>
                         <th>S.No.</th>
                         <th>Book</th>
@@ -198,7 +201,11 @@ $conn =Opencon();
 
 
                 </table>
+            </div>
+                <div align="center">
+                <?php     echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-success btn-sm'><a style='color:white;' href=\"excel.php?table=curr&ID=".$userID."\">Create .csv</a> </button></td>";?>
 
+                </div>
                 <p class="bold" align="left">Books Sold</p>
                 <table class="table center table-hover ">
                     <tr>
@@ -249,6 +256,10 @@ $conn =Opencon();
                     ?>
 
                 </table>
+                <div align="center">
+                <?php     echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-success btn-sm'><a style='color:white;' href=\"excel.php?table=sold&ID=".$userID."\">Create .csv</a> </button></td>";?>
+
+                </div>
                 <p class="bold" align="left">Books Bought</p>
                 <table class="table center table-hover ">
                     <tr>
@@ -299,6 +310,10 @@ $conn =Opencon();
 
 
                 </table>
+                <div align="center">
+                <?php     echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-success btn-sm'><a style='color:white;' href=\"excel.php?table=bought&ID=".$userID."\">Create .csv</a> </button></td>";?>
+
+                </div>
                 <p class="bold" align="left">Books Borrowed</p>
                 <table class="table center table-hover ">
                     <tr>
@@ -351,6 +366,11 @@ $conn =Opencon();
 
 
                 </table>
+                <div align="center">
+                <?php     echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-success btn-sm'><a style='color:white;' href=\"excel.php?table=borrowed&ID=".$userID."\">Create .csv</a> </button></td>";?>
+
+                </div>
+
                 <p class="bold" align="left">Books Lent</p>
                 <table class="table center table-hover ">
                     <tr>
@@ -401,6 +421,10 @@ $conn =Opencon();
 
 
                 </table>
+                <div align="center">
+                <?php     echo "<td style='vertical-align:middle;'> <button type='button' class='btn btn-success btn-sm'><a style='color:white;' href=\"excel.php?table=lent&ID=".$userID."\">Create .csv</a> </button></td>";?>
+
+                </div>
             </div>
         </div>
         <?php
@@ -418,4 +442,17 @@ $conn =Opencon();
       document.getElementById("changePass_form").submit();
     }
   </script>
+
 </body>
+</html>
+<script>
+$(document).ready(function(){
+   $('#create_excel').click(function(){
+       $("#current_posts").table2excel({
+   // exclude CSS class
+   exclude: ".noExl",
+   name: "Worksheet Name",
+   filename: "SomeFile" //do not include extension
+ });
+});
+</script>
